@@ -1,5 +1,5 @@
 export const environment = {
   production: false,
   /* URLs APIs ADMPSFAM */
-  urlApiManagaementEmployee: 'https://localhost:58601/api/v1',
+  urlApiManagaementEmployee: 'https://localhost:55589/api/v1',
 };

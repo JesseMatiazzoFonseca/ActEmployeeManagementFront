@@ -1,3 +1,34 @@
-<p>
-  Login works!
-</p>
+<div class="card card-info">
+  <div class="card-body">
+    <h5 class="card-title">Login</h5>
+    <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+      <div class="form-group mt-4">
+        <label for="cpf">CPF:</label>
+        <input pInputText type="text" formControlName="cpf" ngModel required mask="000.000.000-00" appCpfValidator>
+        <div *ngIf="loginForm.controls['cpf']?.errors?.['cpfInvalid']" class="text-danger">
+          CPF inválido.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Senha:</label>
+        <p-password  formControlName="password" promptLabel="Digite sua senha" autocomplete="off" weakLabel="Fraca"
+          mediumLabel="Média" strongLabel="Forte">
+          <ng-template #footer>
+            <p-divider />
+            <ul class="pl-2 ml-2 my-0 leading-normal">
+              <li>Uma letra minúscula</li>
+              <li>Uma letra maiúscula</li>
+              <li>Uma número</li>
+              <li>Mínimo 8 caractres</li>
+            </ul>
+          </ng-template>
+        </p-password>
+      </div>
+      <button class="btn btn-info" type="submit" [disabled]="!loginForm.valid">Login</button>
+      <ngx-spinner type="ball-scale-multiple"></ngx-spinner>
+    </form>
+  </div>
+  <div class="card-footer">
+    <p>Se ainda não se cadastrou <a href="/cadastro">Clique aqui para se cadastrar</a></p>
+  </div>
+</div>

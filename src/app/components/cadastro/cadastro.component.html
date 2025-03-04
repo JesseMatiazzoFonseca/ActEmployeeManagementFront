@@ -1,3 +1,131 @@
-<p>
-  cadastro works!
-</p>
+<div class="card">
+  <div class="card-header">
+    <h5 class="card-title">Formulario de Cadastro</h5>
+  </div>
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" class="row g-3" [formGroup]="formCadastro">
+
+      <div class="form-group col-6 mt-4">
+        <p-floatlabel>
+          <input pInputText formControlName="nome" type="text" class="form-control" required>
+          <label class="form-label">Nome</label>
+        </p-floatlabel>
+        <span *ngIf="formCadastro.controls['nome']?.errors?.['required']" class="text-danger">
+          Campo obrigatório.
+        </span>
+      </div>
+
+      <div class="form-group col-6 mt-4">
+        <p-floatlabel>
+          <input pInputText formControlName="sobrenome" type="text" class="form-control" required>
+          <label class="form-label">Sobrenome</label>
+        </p-floatlabel>
+        <span *ngIf="formCadastro.controls['sobrenome']?.errors?.['required']" class="text-danger">
+          Campo obrigatório.
+        </span>
+      </div>
+
+      <div class="form-group col-4 mt-4" formGroupName="user">
+        <p-floatlabel>
+          <input pInputText type="text" formControlName="cpf" ngModel required mask="000.000.000-00" appCpfValidator>
+          <label for="cpf">CPF:</label>
+        </p-floatlabel>
+        <span *ngIf="formCadastro.get('user.cpf')?.errors?.['required']" class="text-danger">
+          Campo obrigatório.
+        </span>
+        <span *ngIf="formCadastro.get('user.cpf')?.errors?.['cpfInvalid']" class="text-danger">
+          CPF inválido.
+        </span>
+      </div>
+
+      <div class="form-group col-8 mt-4">
+        <p-floatlabel>
+          <input pInputText formControlName="nomeGestor" type="text" class="form-control" required>
+          <label class="form-label">Nome Gestor</label>
+        </p-floatlabel>
+        <span *ngIf="formCadastro.controls['nomeGestor']?.errors?.['required']" class="text-danger">
+          Campo obrigatório.
+        </span>
+      </div>
+
+      <div class="form-group col-4 mt-4">
+        <p-floatlabel>
+          <p-datepicker formControlName="dataNascimento" required />
+          <label class="form-label">Data de nascimento</label>
+        </p-floatlabel>
+        <span *ngIf="formCadastro.controls['dataNascimento']?.errors?.['required']" class="text-danger">
+          Campo obrigatório.
+        </span>
+        <span *ngIf="formCadastro.controls['dataNascimento']?.errors?.['maiorIdade']" class="text-danger">{{formCadastro.controls['dataNascimento']?.errors?.['maiorIdade']}}</span>
+      </div>
+
+      <div class="form-group col-3 mt-4">
+        <p-floatlabel>
+          <input pInputText formControlName="cep" type="text" class="form-control" required>
+          <label class="form-label">CEP</label>
+        </p-floatlabel>
+        <span *ngIf="formCadastro.controls['cep']?.errors?.['required']" class="text-danger">
+          Campo obrigatório.
+        </span>
+      </div>
+
+      <div class="form-group col-5 mt-4">
+        <p-floatlabel>
+          <input pInputText formControlName="email" type="email" class="form-control" required>
+          <label class="form-label">E-MAIL</label>
+        </p-floatlabel>
+        <span *ngIf="formCadastro.controls['email']?.errors?.['emailInvalid']" class="text-danger">{{formCadastro.controls['email']?.errors?.['emailInvalid']}}</span>
+        <span *ngIf="formCadastro.controls['email']?.errors?.['required']" class="text-danger">
+          Campo obrigatório.
+        </span>
+      </div>
+
+      <div class="form-group col-4 mt-4">
+        <p-floatlabel>
+          <p-inputmask mask="(99) 9 9999-9999" formControlName="celular" required />
+          <label class="form-label">Celular</label>
+        </p-floatlabel>
+        <span *ngIf="formCadastro.controls['celular']?.errors?.['required']" class="text-danger">
+          Campo obrigatório.
+        </span>
+      </div>
+
+      <div class="form-group col-4 mt-4">
+        <p-floatlabel>
+          <p-inputmask mask="(99) 9999-9999" formControlName="telefone" required />
+          <label class="form-label">Telefone</label>
+        </p-floatlabel>
+        <span *ngIf="formCadastro.controls['telefone']?.errors?.['required']" class="text-danger">
+          Campo obrigatório.
+        </span>
+      </div>
+      <hr />
+      <div class="form-group col-12 mt-4 justify-itens-center" formGroupName="user">
+        <p-floatlabel>
+          <p-password formControlName="password" promptLabel="Digite sua senha" autocomplete="off" weakLabel="Fraca"
+            mediumLabel="Média" strongLabel="Forte">
+            <ng-template #footer>
+              <p-divider />
+              <ul class="pl-2 ml-2 my-0 leading-normal">
+                <li>Uma letra minúscula</li>
+                <li>Uma letra maiúscula</li>
+                <li>Uma número</li>
+                <li>Mínimo 8 caractres</li>
+              </ul>
+            </ng-template>
+          </p-password>
+          <label for="password">Senha:</label>
+        </p-floatlabel>
+        <span *ngIf="formCadastro.get('user.password')?.errors?.['required']" class="text-danger">
+          Campo obrigatório.
+        </span>
+      </div>
+    </form>
+  </div>
+  <div class="card-footer">
+    <button class="btn btn-info" type="button" (click)="btnSuibmit()" [disabled]="!formCadastro.valid">Fazer cadastro</button>
+    <a class="btn btn-secondary" href="/login">Cancelar</a>
+  </div>
+</div>
+
+<ngx-spinner type="ball-scale-multiple"></ngx-spinner>

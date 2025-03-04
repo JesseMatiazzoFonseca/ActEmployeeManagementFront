@@ -1,0 +1,95 @@
+<div class="card">
+  <div class="card-header">
+    <h5 class="card-title">Formulario de Cadastro</h5>
+  </div>
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" class="row g-3" [formGroup]="formCadastro">
+
+      <div class="form-group col-6 mt-4">
+        <label class="form-label">Nome</label>
+        <input pInputText formControlName="nome" type="text" class="form-control" required>
+        <span *ngIf="formCadastro.controls['nome']?.errors?.['required']" class="text-danger">
+          Campo obrigatório.
+        </span>
+      </div>
+
+      <div class="form-group col-6 mt-4">
+        <label class="form-label">Sobrenome</label>
+        <input pInputText formControlName="sobrenome" type="text" class="form-control" required>
+        <span *ngIf="formCadastro.controls['sobrenome']?.errors?.['required']" class="text-danger">
+          Campo obrigatório.
+        </span>
+      </div>
+
+      <div class="form-group col-4 mt-4" formGroupName="user">
+        <label class="form-label">CPF:</label>
+        <input pInputText type="text" formControlName="cpf" ngModel required mask="000.000.000-00" appCpfValidator>
+        <span *ngIf="formCadastro.get('user.cpf')?.errors?.['required']" class="text-danger">
+          Campo obrigatório.
+        </span>
+        <span *ngIf="formCadastro.get('user.cpf')?.errors?.['cpfInvalid']" class="text-danger">
+          CPF inválido.
+        </span>
+      </div>
+
+      <div class="form-group col-8 mt-4">
+        <label class="form-label">Nome Gestor</label>
+        <input pInputText formControlName="nomeGestor" type="text" class="form-control" required>
+        <span *ngIf="formCadastro.controls['nomeGestor']?.errors?.['required']" class="text-danger">
+          Campo obrigatório.
+        </span>
+      </div>
+
+      <div class="form-group col-4 mt-4">
+        <label class="form-label">Data de nascimento</label>
+        <input pInputText formControlName="dataNascimento" type="date" class="form-control" required>
+        <span *ngIf="formCadastro.controls['dataNascimento']?.errors?.['required']" class="text-danger">
+          Campo obrigatório.
+        </span>
+        <span *ngIf="formCadastro.controls['dataNascimento']?.errors?.['maiorIdade']"
+          class="text-danger">{{formCadastro.controls['dataNascimento']?.errors?.['maiorIdade']}}</span>
+      </div>
+
+      <div class="form-group col-3 mt-4">
+        <label class="form-label">CEP</label>
+        <input pInputText formControlName="cep" type="text" class="form-control" required>
+        <span *ngIf="formCadastro.controls['cep']?.errors?.['required']" class="text-danger">
+          Campo obrigatório.
+        </span>
+      </div>
+
+      <div class="form-group col-5 mt-4">
+        <label class="form-label">E-MAIL</label>
+        <input pInputText formControlName="email" type="email" class="form-control" required>
+        <span *ngIf="formCadastro.controls['email']?.errors?.['emailInvalid']"
+          class="text-danger">{{formCadastro.controls['email']?.errors?.['emailInvalid']}}</span>
+        <span *ngIf="formCadastro.controls['email']?.errors?.['required']" class="text-danger">
+          Campo obrigatório.
+        </span>
+      </div>
+
+      <div class="form-group col-4 mt-4">
+        <label class="form-label">Celular</label>
+        <p-inputmask mask="(99) 9 9999-9999" formControlName="celular" required />
+        <span *ngIf="formCadastro.controls['celular']?.errors?.['required']" class="text-danger">
+          Campo obrigatório.
+        </span>
+      </div>
+
+      <div class="form-group col-4 mt-4">
+        <label class="form-label">Telefone</label>
+        <p-inputmask mask="(99) 9999-9999" formControlName="telefone" required />
+        <span *ngIf="formCadastro.controls['telefone']?.errors?.['required']" class="text-danger">
+          Campo obrigatório.
+        </span>
+      </div>
+    </form>
+  </div>
+  <div class="card-footer">
+    <button class="btn btn-info" type="button" (click)="btnSuibmit()" [disabled]="!formCadastro.valid">Fazer
+      alteração</button>
+    <button class="btn btn-secondary" type="button" (click)="sair()">Cancelar</button>
+  </div>
+</div>
+
+<ngx-spinner type="ball-scale-multiple"></ngx-spinner>
