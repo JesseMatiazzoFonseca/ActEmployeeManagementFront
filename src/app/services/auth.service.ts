@@ -25,6 +25,15 @@ export class AuthService {
     return role === 'ADM'
   }
 
+  isGestor(): boolean {
+    const user = sessionStorage.getItem('user');
+    if(!user)
+      return false;
+    const userObjt = JSON.parse(user) as UserResponse;
+    const role = this.obterRole(userObjt.token);
+    return role === 'GESTOR'
+  }
+
   getUser() {
     return JSON.parse(sessionStorage.getItem('user') || "");
   }

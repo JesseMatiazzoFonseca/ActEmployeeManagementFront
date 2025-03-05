@@ -15,9 +15,10 @@ export class GuardAdm implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     const isAdm = this.authService.isAdm();
-    if (!isAdm) {
+    const isGestor = this.authService.isGestor();
+    if (!isAdm && !isGestor) {
       this.router.navigate(['/login']);
     }
-    return isAdm;
+    return isAdm || isGestor;
   }
 };

@@ -19,7 +19,7 @@
         <td>
           <div>
             <div class="btn-group btn-group-sm" role="group">
-              <button [disabled]="funcionarios.roles=='GESTOR'" (click)="gestor(funcionarios.codUsuario)" type="button" class="btn btn-warning">Acesso Gestor</button>
+              <button *ngIf="isAdm()" [disabled]="funcionarios.roles=='GESTOR'" (click)="gestor(funcionarios.codUsuario)" type="button" class="btn btn-warning">Acesso Gestor</button>
               <button (click)="editar(funcionarios.codUsuario)" type="button" class="btn btn-primary">Editar</button>
             </div>
           </div>

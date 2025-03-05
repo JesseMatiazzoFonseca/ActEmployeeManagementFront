@@ -1,6 +1,5 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA, inject, input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 import { CommonModule } from '@angular/common';
 import { TableModule } from 'primeng/table';
 import { NgxSpinnerModule, NgxSpinnerService } from "ngx-spinner";
@@ -18,7 +17,7 @@ import { UsuarioService } from '../../../services/usuario.service';
   templateUrl: './list-funcionarios.component.html',
   styleUrls: ['./list-funcionarios.component.css'],
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, CommonModule, NgxMaskDirective, NgxSpinnerModule, TableModule],
+  imports: [FormsModule, ReactiveFormsModule, CommonModule, NgxSpinnerModule, TableModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class ListFuncionariosComponent implements OnInit {
@@ -88,6 +87,9 @@ export class ListFuncionariosComponent implements OnInit {
   }
   public editar(codUsuario: number) {
     this.router.navigate([`/editar/${codUsuario}`]);
+  }
+  public isAdm() {
+    return this.auth.isAdm();
   }
 
 }
