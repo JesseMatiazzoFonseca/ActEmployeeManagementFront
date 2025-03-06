@@ -1,59 +1,54 @@
 # ActEmployeeManagementFront
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.0.
+# Projeto CRUD - Gestão de Usuários (Angular 19 + Node.js 22)
 
-## Development server
+Este projeto é um CRUD de usuários desenvolvido com **Angular 19** no frontend e **Node.js 22** no backend. Ele permite o cadastro, autenticação e gestão de usuários com diferentes níveis de permissão.
 
-To start a local development server, run:
+## 🚀 Funcionalidades
 
-```bash
-ng serve
-```
+- **Cadastro de Usuário**
+  - Se o usuário cadastrar com uma senha comum, ele será registrado com permissão **baixa**.
+  - Se a senha informada for a mesma cadastrada na API (appsettings.json), o usuário será registrado como **Administrador**.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- **Autenticação**
+  - Usuários podem fazer login e visualizar suas informações.
+  - Administradores podem ver a lista de usuários e gerenciar permissões.
 
-## Code scaffolding
+- **Gestão de Usuários**
+  - Administradores podem promover usuários a **Gestores**.
+  - Gestores, ao fazer login, podem editar os dados de outros usuários.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+---
 
-```bash
-ng generate component component-name
-```
+## 🛠️ Tecnologias Utilizadas
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+- **Frontend:** Angular 19
+- **Backend:** Node.js 22
+- **Gerenciador de Pacotes:** npm
+- **Docker** (opcional)
 
-```bash
-ng generate --help
-```
+---
 
-## Building
+## 📦 Como Rodar o Projeto
 
-To build the project run:
+### 🏃 Rodando Sem Docker
 
-```bash
-ng build
-```
+1. **Clone o repositório**  
+   git clone -b (branch) https://github.com/JesseMatiazzoFonseca/ActEmployeeManagementApi.git
+   cd seu-repositorio
+   npm install
+   npm start
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+  ### 🏃 Rodando com Docker
 
-## Running unit tests
+1. **Clone o repositório**
+   git clone -b (branch) https://github.com/JesseMatiazzoFonseca/ActEmployeeManagementApi.git
+   cd seu-repositorio
+   **Certifique-se de ter o Docker instalado**   
+   docker build -t ActEmployeeManagementFront .
+   docker run -p 4200:4200 meu-front
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
 
-```bash
-ng test
-```
 
-## Running end-to-end tests
 
-For end-to-end (e2e) testing, run:
 
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
