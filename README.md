@@ -47,7 +47,7 @@ Este projeto é um CRUD de usuários desenvolvido com **Angular 19** no frontend
    - cd seu-repositorio
    **Certifique-se de ter o Docker instalado**   
    - docker build -t ActEmployeeManagementFront .
-   - docker run -p 4200:4200 meu-front
+   - docker run -p 4200:4200 ActEmployeeManagementFront
      
 
 
