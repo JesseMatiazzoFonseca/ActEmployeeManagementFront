@@ -48,6 +48,9 @@ Este projeto é um CRUD de usuários desenvolvido com **Angular 19** no frontend
    **Certifique-se de ter o Docker instalado**   
    - docker build -t ActEmployeeManagementFront .
    - docker run -p 4200:4200 ActEmployeeManagementFront
+  
+   ###Observação !!!
+    - Verificar a porta em que a API estara rodando e alterar dentro do arquivo **environment.ts**
      
 
 
