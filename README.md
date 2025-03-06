@@ -34,7 +34,7 @@ Este projeto é um CRUD de usuários desenvolvido com **Angular 19** no frontend
 ### 🏃 Rodando Sem Docker
 
 1. **Clone o repositório**  
-   git clone -b (branch) https://github.com/JesseMatiazzoFonseca/ActEmployeeManagementApi.git
+   git clone -b (branch) https://github.com/JesseMatiazzoFonseca/ActEmployeeManagementFront.git
    cd seu-repositorio
    npm install
    npm start
@@ -42,7 +42,7 @@ Este projeto é um CRUD de usuários desenvolvido com **Angular 19** no frontend
   ### 🏃 Rodando com Docker
 
 1. **Clone o repositório**
-   git clone -b (branch) https://github.com/JesseMatiazzoFonseca/ActEmployeeManagementApi.git
+   git clone -b (branch) https://github.com/JesseMatiazzoFonseca/ActEmployeeManagementFront.git
    cd seu-repositorio
    **Certifique-se de ter o Docker instalado**   
    docker build -t ActEmployeeManagementFront .
