@@ -34,19 +34,19 @@ Este projeto é um CRUD de usuários desenvolvido com **Angular 19** no frontend
 ### 🏃 Rodando Sem Docker
 
 1. **Clone o repositório**  
-   git clone -b (branch) https://github.com/JesseMatiazzoFonseca/ActEmployeeManagementFront.git
-   cd seu-repositorio
-   npm install
-   npm start
+  - git clone -b (branch) https://github.com/JesseMatiazzoFonseca/ActEmployeeManagementFront.git
+  - cd seu-repositorio
+  - npm install
+  - npm start
 
   ### 🏃 Rodando com Docker
 
 1. **Clone o repositório**
-   git clone -b (branch) https://github.com/JesseMatiazzoFonseca/ActEmployeeManagementFront.git
-   cd seu-repositorio
+   - git clone -b (branch) https://github.com/JesseMatiazzoFonseca/ActEmployeeManagementFront.git
+   - cd seu-repositorio
    **Certifique-se de ter o Docker instalado**   
-   docker build -t ActEmployeeManagementFront .
-   docker run -p 4200:4200 meu-front
+   - docker build -t ActEmployeeManagementFront .
+   - docker run -p 4200:4200 meu-front
 
 
 
